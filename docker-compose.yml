@@ -1,0 +1,17 @@
+version: "3.4"
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "4020:80"
+
+  fpm:
+    build:
+      context: ./fpm
+      dockerfile: Dockerfile
+
+    volumes:
+      - ./fpm/www:/var/www/html
